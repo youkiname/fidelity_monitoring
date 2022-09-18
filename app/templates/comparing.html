@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}Code Comparing{% endblock %}
+{% block content %}
+    <div id="fixed-div">
+        <a
+        id="go-to-link"
+        href="{{ url_for('code', old_page_id=old_page_id, new_page_id=new_page_id) }}"
+        >Go to code</a>
+    </div>
+
+    <div style="display: flex; flex-direction: row;">
+        <div style="flex-grow: 0;">
+            {{ old_html|safe }}
+        </div>
+        <div class="vl"></div>
+        <div style="flex-grow: 0;">
+            {{ new_html|safe }}
+        </div>
+    </div>
+{% endblock %}

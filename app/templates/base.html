@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+    <style>
+        .vl {
+          border-left: 6px solid green;
+        }
+        #fixed-div {
+          position: fixed;
+          top: 1em;
+          left: 1em;
+          background-color: #008CBA;
+          color: white;
+        }
+        #go-to-link {
+          background-color: #0095ff;
+          border: 1px solid transparent;
+          border-radius: 3px;
+          box-shadow: rgba(255, 255, 255, .4) 0 1px 0 0 inset;
+          box-sizing: border-box;
+          color: #fff;
+          cursor: pointer;
+          display: inline-block;
+          font-family: -apple-system,system-ui,"Segoe UI","Liberation Sans",sans-serif;
+          font-size: 13px;
+          font-weight: 400;
+          line-height: 1.15385;
+          margin: 0;
+          outline: none;
+          padding: 8px .8em;
+          position: relative;
+          text-align: center;
+          text-decoration: none;
+          user-select: none;
+          -webkit-user-select: none;
+          touch-action: manipulation;
+          vertical-align: baseline;
+          white-space: nowrap;
+        }
+
+        #go-to-link:hover,
+        #go-to-link:focus {
+          background-color: #07c;
+        }
+
+        #go-to-link:focus {
+          box-shadow: 0 0 0 4px rgba(0, 149, 255, .15);
+        }
+
+        #go-to-link:active {
+          background-color: #0064bd;
+          box-shadow: none;
+        }
+    </style>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+          document.querySelectorAll('code').forEach((el) => {
+            hljs.highlightElement(el);
+          });
+        });
+    </script>
+  </head>
+  <body>
+  <div class="container">
+    <h1 style="text-align: center" class="m-2"><a href="/">Fidelity Monitoring</a></h1>
+    <hr>
+    {% block content %}{% endblock %}
+  </div>
+  </body>
+</html>

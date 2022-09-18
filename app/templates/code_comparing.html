@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}Code Comparing{% endblock %}
+{% block content %}
+    <div id="fixed-div">
+        <a
+        id="go-to-link"
+        href="{{ url_for('compare', old_page_id=old_page_id, new_page_id=new_page_id) }}"
+        >Go to design</a>
+    </div>
+
+    <div style="display: flex; flex-direction: row; white-space: pre-wrap;">
+        <code class="hljs language-html">
+            {{ old_html }}
+        </code>
+        <div class="vl"></div>
+        <code class="hljs language-html">
+        {{ new_html }}
+        </code>
+    </div>
+{% endblock %}

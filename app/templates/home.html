@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+{% block content %}
+<h3>Url Regex</h3>
+<ul>
+    {% for url in url_regexes %}
+    <li>{{ url.regex }} {% if url.tag_id %} content_id={{ url.tag_id }} {% endif %}
+        [<a href="{{ url_for('delete_url_regex', regex_id=url.id) }}">Delete</a>,
+        {% if url.active %}
+        <a href="{{ url_for('disable_url_regex', regex_id=url.id) }}">Disable</a>
+        {% else %}
+        <a href="{{ url_for('enable_url_regex', regex_id=url.id) }}">Enable</a>
+        {% endif %}
+        ]</li>
+    {% endfor%}
+</ul>
+<form action="{{ url_for('add_url_regex') }}" method="post">
+    <input type="text" name="regex" placeholder="https://docs.python.org/*">
+    <input type="text" name="tag_id" placeholder="content html id (optional)">
+    <button type="submit" class="btn btn-primary">Add New</button>
+</form>
+<h3>Supervised urls</h3>
+<ul>
+    {% for url in supervised_urls %}
+    <li><a href="{{ url.url }}">{{ url.url }}</a> {% if url.tag_id %} | content_id={{ url.tag_id }} {% endif %}
+        [<a href="{{ url_for('delete_supervised_url', url_id=url.id) }}">Delete</a>,
+        <a href="{{ url_for('page_changes', url_id=url.id) }}">Changes</a>
+        ]
+    </li>
+    {% endfor%}
+</ul>
+<form action="{{ url_for('add_supervised_url') }}" method="post">
+    <input type="text" name="url" placeholder="https://python.org">
+    <input type="text" name="tag_id" placeholder="content html id (optional)">
+    <button type="submit" class="btn btn-primary">Add New</button>
+</form>
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}Page Changes{% endblock %}
+{% block content %}
+    <h3>{{ url.url }} has {{ changes_amount }} changes</h3>
+    <ul>
+        {% for change in changes %}
+        <li><strong>{{ change.human_created_at() }}</strong>
+            [<a href="{{ url_for('compare', old_page_id=change.old_page.id, new_page_id=change.new_page.id) }}">See</a>]</li>
+        {% endfor%}
+    </ul>
+{% endblock %}

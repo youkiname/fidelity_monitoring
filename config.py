@@ -1,0 +1,10 @@
+import os
+
+BASE_DIR = os.path.abspath(os.path.dirname(__file__))
+TELEGRAM_BOT_TOKEN = "1105608125:AAGcVSb8HYPedFM1tLk8aaT2DQYkdItnSHM"
+NOTIFICATION_CHAT_ID = 446813450
+DOMAIN = '127.0.0.1'
+PORT = 8001
+
+PARSER_PAGE_DELAY = 1  # sec
+PARSER_LOOP_DELAY = 1  # sec
